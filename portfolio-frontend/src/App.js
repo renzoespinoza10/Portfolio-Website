@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+
 import './App.css';
+
+import { ChakraProvider, HStack, IconButton, VStack } from "@chakra-ui/react";
+
+import { extendTheme } from "@chakra-ui/react";
+import Navigation from './Components/Navigation';
+import Profile from './Components/Profile';
+import { Flex, Spacer, Image } from '@chakra-ui/react';
+import { FaLaptopCode, FaTerminal } from 'react-icons/fa';
+
+
+const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        bg: "gray.100",
+      },
+    },
+  },
+});
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
+      
+      <ChakraProvider theme={theme}>
+        
+        <Navigation />
+       
+        
+        <HStack spacing='80px'>
+          <Flex>
+          <Profile/>
+          </Flex>
+          
+          <Flex>
+            <Image size 
+              boxSize='300px' src="/headshot.jpg" />
+          </Flex>
+        
+        </HStack>
+        
+        
+      </ChakraProvider>
     );
-}
+  }
 
 export default App;
