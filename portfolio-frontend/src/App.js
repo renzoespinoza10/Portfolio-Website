@@ -1,13 +1,14 @@
 
 import './App.css';
 
-import { ChakraProvider, HStack, IconButton, VStack } from "@chakra-ui/react";
+import { ChakraProvider, HStack,  } from "@chakra-ui/react";
 
 import { extendTheme } from "@chakra-ui/react";
 import Navigation from './Components/Navigation';
 import Profile from './Components/Profile';
-import { Flex, Spacer, Image } from '@chakra-ui/react';
-import { FaLaptopCode, FaTerminal } from 'react-icons/fa';
+import { Flex, Image } from '@chakra-ui/react';
+
+
 
 
 const theme = extendTheme({
@@ -34,8 +35,7 @@ function App() {
           </Flex>
           
           <Flex>
-            <Image size 
-              boxSize='300px' src="/headshot.jpg" />
+            <Image boxSize='300px' src="Portfolio-Website/images/1684809288078.jpg" alt='headshot'/>
           </Flex>
         
         </HStack>
