@@ -1,7 +1,8 @@
 import { EmailIcon } from '@chakra-ui/icons';
-import { Button, HStack, Heading, VStack, Flex, Text, Code, Box, StackDivider, Icon } from '@chakra-ui/react';
+import { Button, HStack, Heading, VStack, Flex, Text, Code, Box } from '@chakra-ui/react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaLaptopCode } from 'react-icons/fa';
+
 
 const subHeading =
   "My name is Renzo Espinoza! I'm a university student and" +
@@ -16,7 +17,7 @@ function Profile() {
       <Box p={{ base: 5, md: 10 }}>
         <FaLaptopCode size="80" color="teal" />
       </Box>
-      <VStack
+      <VStack name = "headerSection"
         spacing={6}
         p={{ base: 5, md: "120" }}
         align={{ base: "center", md: "flex-start" }}
@@ -27,6 +28,7 @@ function Profile() {
         <Code fontSize={{ base: "lg", md: "xl", lg: "2xl" }} colorScheme="cyan">
           {jobTitle}
         </Code>
+        
         <Text fontSize={{ base: "sm", md: "md", lg: "lg" }} color="gray.600">
           {subHeading}
         </Text>
@@ -61,7 +63,10 @@ function Profile() {
             Email
           </Button>
         </HStack>
+        
+        
       </VStack>
+      
     </Flex>
   );
 }
