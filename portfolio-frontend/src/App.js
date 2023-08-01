@@ -66,7 +66,7 @@ function App() {
           height="800px"
           />
             <Link to="headerSection" smooth={true} duration={500}>
-              <Button colorScheme="teal" mt={4} style={{left : "100%"}} >
+              <Button colorScheme="teal" mt={4}  >
                 Back to Top
               </Button>
             </Link>
