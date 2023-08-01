@@ -1,7 +1,7 @@
 
 import './App.css';
 
-import { ChakraProvider, HStack, Button, Box  } from "@chakra-ui/react";
+import { ChakraProvider, HStack, Button, Box, useMediaQuery  } from "@chakra-ui/react";
 import { Link, Element } from 'react-scroll';
 import { extendTheme } from "@chakra-ui/react";
 import Navigation from './Components/Navigation';
@@ -16,12 +16,14 @@ const theme = extendTheme({
     global: {
       body: {
         bg: "gray.100",
+        margin:0
       },
     },
   },
 });
 
 function App() {
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
     return (
       
       <ChakraProvider theme={theme}>
@@ -35,7 +37,11 @@ function App() {
           </Flex>
           
           <Flex>
-            <Image boxSize='300px' src={process.env.PUBLIC_URL + "/images/1684809288078.jpg"} alt='headshot'/>
+            <Image
+            boxSize={isMobile ? "150px" : "300px"}
+            src={process.env.PUBLIC_URL + "/images/1684809288078.jpg"}
+            alt="headshot"
+          />
           </Flex>
         
         </HStack>
@@ -46,7 +52,8 @@ function App() {
         </Link>
         <Element name="resumeSection"   >
           <Box
-            position="absolute" // Use relative positioning
+            position="relative"
+            top={isMobile ? "-150px" : "-300px"}
             top = "180%"// Adjust the negative value to control the distance it goes down
             style={{left : "25%"}}
             py={10}
