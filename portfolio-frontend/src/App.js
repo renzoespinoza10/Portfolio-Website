@@ -16,7 +16,7 @@ const theme = extendTheme({
     global: {
       body: {
         bg: "gray.100",
-        margin:0
+        margin: 0
       },
     },
   },
@@ -52,8 +52,7 @@ function App() {
         </Link>
         <Element name="resumeSection"   >
           <Box
-            position="relative"
-            top={isMobile ? "-150px" : "-300px"}
+            position="absolute" // Use relative positioning
             top = "180%"// Adjust the negative value to control the distance it goes down
             style={{left : "25%"}}
             py={10}
@@ -63,7 +62,7 @@ function App() {
           <embed
           src={process.env.PUBLIC_URL + "/pdfs/renzoE2023SummerResume.pdf"}
           type="application/pdf"
-          width="300%"
+          width={isMobile ? "100%" : "800px"}
           height="800px"
           />
             <Link to="headerSection" smooth={true} duration={500}>
