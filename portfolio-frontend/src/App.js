@@ -35,7 +35,7 @@ function App() {
           </Flex>
           
           <Flex>
-            <Image boxSize='300px' src="Portfolio-Website/images/1684809288078.jpg" alt='headshot'/>
+            <Image boxSize='300px' src={process.env.PUBLIC_URL + "/images/1684809288078.jpg"} alt='headshot'/>
           </Flex>
         
         </HStack>
