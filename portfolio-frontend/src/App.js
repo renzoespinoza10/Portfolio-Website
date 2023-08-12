@@ -1,7 +1,7 @@
 
 import './App.css';
 
-import { ChakraProvider, HStack, Button, Box, useMediaQuery  } from "@chakra-ui/react";
+import { ChakraProvider, HStack, VStack, Button, Box, useMediaQuery  } from "@chakra-ui/react";
 import { Link, Element } from 'react-scroll';
 import { extendTheme } from "@chakra-ui/react";
 import Navigation from './Components/Navigation';
@@ -24,33 +24,46 @@ const theme = extendTheme({
 
 function App() {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
-    return (
-      
-      <ChakraProvider theme={theme}>
-        
-        <Navigation />
-       
-        
-        <HStack spacing='80px'>
+
+  return (
+    // ...
+    <ChakraProvider theme={theme}>
+      <Navigation />
+
+      {isMobile ? (
+        <VStack spacing={4} align="center">
           <Flex>
-          <Profile/>
+            <Profile />
           </Flex>
-          
           <Flex>
             <Image
-            boxSize={isMobile ? "150px" : "300px"}
-            src={process.env.PUBLIC_URL + "/images/1684809288078.jpg"}
-            alt="headshot"
-          />
+              boxSize="120px"
+              src={process.env.PUBLIC_URL + "/images/1684809288078.jpg"}
+              alt="headshot"
+              mx="auto"
+            />
           </Flex>
-        
+        </VStack>
+      ) : (
+        <HStack spacing='80px'>
+          <Flex>
+            <Profile />
+          </Flex>
+          <Flex>
+            <Image
+              boxSize="300px"
+              src={process.env.PUBLIC_URL + "/images/1684809288078.jpg"}
+              alt="headshot"
+            />
+          </Flex>
         </HStack>
-        <Link to="resumeSection" smooth={true} duration={500}>
+      )}
+      <Link to="resumeSection" smooth={true} duration={500}>
           <Button colorScheme="teal" style={{left:"50%"}}  mt={4} >
             View Resume
           </Button>
         </Link>
-        <Element name="resumeSection"   >
+      <Element name="resumeSection"   >
           <Box
             position="absolute" // Use relative positioning
             top = "180%"// Adjust the negative value to control the distance it goes down
@@ -71,10 +84,10 @@ function App() {
               </Button>
             </Link>
           </Box>
-        </Element>
+      </Element>
         
-      </ChakraProvider>
-    );
-  }
+    </ChakraProvider>
+  );
+}
 
 export default App;
