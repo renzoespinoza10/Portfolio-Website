@@ -58,10 +58,12 @@ export default function Navigation() {
           }}>
             About
           </Button>
-          <Button variant="ghost" mr={2}>
+          <Button variant="ghost" mr={2} onClick={() => {
+            history('/Portfolio-Website/experience')
+          }}>
             Experience
           </Button>
-          <Button variant="ghost" onClick={() => {
+          <Button variant="ghost" mr={2} onClick={() => {
             history('/Portfolio-Website/photography')
           }}>
             Photography

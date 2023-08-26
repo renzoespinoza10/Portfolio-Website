@@ -5,6 +5,7 @@ import Home from './Components/Home';
 import About from './Components/About';
 import Navigation from './Components/Navigation';
 import Photography from './Components/Photography';
+import Experience from './Components/Experience.';
 
 const theme = extendTheme({
   styles: {
@@ -25,6 +26,7 @@ export default function App() {
         <Routes>
           <Route path="/Portfolio-Website" element={<Home />} />
           <Route path="/Portfolio-Website/about" element={<About />} />
+          <Route path="/Portfolio-Website/experience" element={<Experience />} />
           <Route path="/Portfolio-Website/photography" element={<Photography />} />
         </Routes>
       </Router>

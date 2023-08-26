@@ -5,7 +5,7 @@ import { Box, Heading, Text, Image, VStack } from '@chakra-ui/react';
 function Photography(){
     return (
         <VStack>
-            <Heading as="h1" size="xl" mb={4} color="teal.500">
+            <Heading as="h1" size="xl" mt = {2} mb={4} color="teal.500">
                 Photography
             </Heading>
             <Text>
