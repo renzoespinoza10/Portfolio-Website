@@ -76,7 +76,7 @@ export default function Home() {
             py={10}
           >
             <embed
-              src={process.env.PUBLIC_URL + "/pdfs/renzoE2023SummerResume.pdf"}
+              src={process.env.PUBLIC_URL + "/pdfs/renzoE2024CycleResume.pdf"}
               type="application/pdf"
               width={isMobile ? "100%" : "800px"}
               height="800px"
