@@ -1,93 +1,33 @@
-
-import './App.css';
-
-import { ChakraProvider, HStack, VStack, Button, Box, useMediaQuery  } from "@chakra-ui/react";
-import { Link, Element } from 'react-scroll';
-import { extendTheme } from "@chakra-ui/react";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import Home from './Components/Home';
+import About from './Components/About';
 import Navigation from './Components/Navigation';
-import Profile from './Components/Profile';
-import { Flex, Image } from '@chakra-ui/react';
-
-
-
+import Photography from './Components/Photography';
 
 const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: "gray.100",
-        margin: 0
+        bg: 'gray.100',
+        margin: 0,
       },
     },
   },
 });
 
-function App() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
-
+export default function App() {
   return (
-    // ...
     <ChakraProvider theme={theme}>
-      <Navigation />
-
-      {isMobile ? (
-        <VStack spacing={4} align="center">
-          <Flex>
-            <Profile />
-          </Flex>
-          <Flex>
-            <Image
-              boxSize="120px"
-              src={process.env.PUBLIC_URL + "/images/1684809288078.jpg"}
-              alt="headshot"
-              mx="auto"
-            />
-          </Flex>
-        </VStack>
-      ) : (
-        <HStack spacing='80px'>
-          <Flex>
-            <Profile />
-          </Flex>
-          <Flex>
-            <Image
-              boxSize="300px"
-              src={process.env.PUBLIC_URL + "/images/1684809288078.jpg"}
-              alt="headshot"
-            />
-          </Flex>
-        </HStack>
-      )}
-      <Link to="resumeSection" smooth={true} duration={500}>
-          <Button colorScheme="teal" style={{left:"50%"}}  mt={4} >
-            View Resume
-          </Button>
-        </Link>
-      <Element name="resumeSection"   >
-          <Box
-            position="absolute" // Use relative positioning
-            top = "180%"// Adjust the negative value to control the distance it goes down
-            style={{left : "25%"}}
-            py={10}
-            textAlign="center"
-          >
-          
-          <embed
-          src={process.env.PUBLIC_URL + "/pdfs/renzoE2023SummerResume.pdf"}
-          type="application/pdf"
-          width={isMobile ? "100%" : "800px"}
-          height="800px"
-          />
-            <Link to="headerSection" smooth={true} duration={500}>
-              <Button colorScheme="teal" mt={4}  >
-                Back to Top
-              </Button>
-            </Link>
-          </Box>
-      </Element>
-        
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route path="/Portfolio-Website" element={<Home />} />
+          <Route path="/Portfolio-Website/about" element={<About />} />
+          <Route path="/Portfolio-Website/photography" element={<Photography />} />
+        </Routes>
+      </Router>
     </ChakraProvider>
   );
 }
-
-export default App;
